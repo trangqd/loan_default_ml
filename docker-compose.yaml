@@ -1,0 +1,96 @@
+version: "3.9"
+
+# ───────────────────── Shared settings ──────────────────────
+x-airflow-common: &airflow-common
+  build: .
+  user: "50000:0"                    # match image's airflow UID/GID
+  depends_on:
+    - postgres
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    AIRFLOW__CORE__FERNET_KEY: ""                   # auto-created on first run
+    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+
+    AIRFLOW__LOGGING__BASE_LOG_FOLDER: /opt/airflow/logs
+    AIRFLOW__LOGGING__REMOTE_LOGGING: "False"
+
+    # www user created by airflow-init; keep vars for idempotency
+    _AIRFLOW_WWW_USER_CREATE: "true"
+    _AIRFLOW_WWW_USER_USERNAME: "admin"
+    _AIRFLOW_WWW_USER_PASSWORD: "admin"
+    _AIRFLOW_WWW_USER_EMAIL: "admin@example.com"
+    _AIRFLOW_WWW_USER_FIRSTNAME: "Admin"
+    _AIRFLOW_WWW_USER_LASTNAME: "User"
+
+  volumes:
+    - ./logs:/opt/airflow/logs
+    - ./dags:/opt/airflow/dags
+    - ./utils:/opt/airflow/utils
+    - ./data:/opt/airflow/data
+    - ./data_mart:/opt/airflow/data_mart
+    - ./model_bank:/opt/airflow/model_bank
+
+  networks:
+    - airflow-net
+
+# ───────────────────────────── Services ─────────────────────────────
+services:
+  # ---------- Metadata DB -------------------------------------------
+  postgres:
+    image: postgres:15
+    container_name: airflow-postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - airflow-net
+
+  # ---------- One-off DB & user initialiser -------------------------
+  airflow-init:
+    <<: *airflow-common
+    container_name: airflow-init
+    entrypoint: >
+      bash -c "
+        exec airflow db upgrade &&
+        exec airflow users create \
+          --username ${_AIRFLOW_WWW_USER_USERNAME} \
+          --password ${_AIRFLOW_WWW_USER_PASSWORD} \
+          --firstname ${_AIRFLOW_WWW_USER_FIRSTNAME} \
+          --lastname ${_AIRFLOW_WWW_USER_LASTNAME} \
+          --email ${_AIRFLOW_WWW_USER_EMAIL} \
+          --role Admin || true
+      "
+    depends_on:
+      - postgres
+    restart: "no"
+
+  # ---------- Webserver ---------------------------------------------
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: airflow-webserver
+    command: webserver
+    ports:
+      - "8080:8080"
+    depends_on:
+      - airflow-init
+    mem_limit: 4g                    # same as you had
+
+  # ---------- Scheduler ---------------------------------------------
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: airflow-scheduler
+    command: scheduler
+    depends_on:
+      - airflow-init
+
+# ───────────────────────────── Volumes ─────────────────────────────
+volumes:
+  postgres-data:
+
+# ───────────────────────────── Networks ─────────────────────────────
+networks:
+  airflow-net:

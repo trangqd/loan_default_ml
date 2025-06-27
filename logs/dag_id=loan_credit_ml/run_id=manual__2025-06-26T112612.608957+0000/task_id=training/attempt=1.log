@@ -1,0 +1,21 @@
+[2025-06-26T11:26:41.499+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T11:26:41.541+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.training manual__2025-06-26T11:26:12.608957+00:00 [queued]>
+[2025-06-26T11:26:41.553+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.training manual__2025-06-26T11:26:12.608957+00:00 [queued]>
+[2025-06-26T11:26:41.554+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T11:26:41.573+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): training> on 2025-06-26 11:26:12.608957+00:00
+[2025-06-26T11:26:41.602+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'training', 'manual__2025-06-26T11:26:12.608957+00:00', '--job-id', '71', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpww88qm87']
+[2025-06-26T11:26:41.606+0000] {standard_task_runner.py:91} INFO - Job 71: Subtask training
+[2025-06-26T11:26:41.607+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=305) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T11:26:41.608+0000] {standard_task_runner.py:63} INFO - Started process 315 to run task
+[2025-06-26T11:26:41.718+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.training manual__2025-06-26T11:26:12.608957+00:00 [running]> on host 0aa00e2dc6c2
+[2025-06-26T11:26:42.149+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='training' AIRFLOW_CTX_EXECUTION_DATE='2025-06-26T11:26:12.608957+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-26T11:26:12.608957+00:00'
+[2025-06-26T11:26:42.154+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T11:26:50.023+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/joblib/parallel.py:1379 UserWarning: Loky-backed parallel loops cannot be called in a multiprocessing, setting n_jobs=1
+[2025-06-26T11:26:50.033+0000] {logging_mixin.py:188} INFO - Fitting 3 folds for each of 30 candidates, totalling 90 fits
+[2025-06-26T11:33:05.842+0000] {logging_mixin.py:188} INFO - ✓ Model artefact saved → model_bank/credit_model_2025_06_26.pkl
+[2025-06-26T11:33:06.847+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T11:33:06.852+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T11:33:07.321+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=training, run_id=manual__2025-06-26T11:26:12.608957+00:00, execution_date=20250626T112612, start_date=20250626T112641, end_date=20250626T113307
+[2025-06-26T11:33:07.794+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T11:33:08.211+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T11:33:08.217+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

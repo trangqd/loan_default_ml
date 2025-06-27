@@ -1,0 +1,83 @@
+[2025-06-26T12:56:15.273+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T12:56:15.318+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.training scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T12:56:15.333+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.training scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T12:56:15.334+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2025-06-26T12:56:15.357+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): training> on 2024-10-01 03:00:00+00:00
+[2025-06-26T12:56:15.377+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'training', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmphydvi8t_']
+[2025-06-26T12:56:15.381+0000] {standard_task_runner.py:91} INFO - Job 89: Subtask training
+[2025-06-26T12:56:15.382+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=222) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T12:56:15.384+0000] {standard_task_runner.py:63} INFO - Started process 246 to run task
+[2025-06-26T12:56:15.459+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.training scheduled__2024-10-01T03:00:00+00:00 [running]> on host 1874434f82c9
+[2025-06-26T12:56:15.591+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='training' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T12:56:15.594+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T12:56:19.648+0000] {logging_mixin.py:188} INFO - Fitting 3 folds for each of 10 candidates, totalling 30 fits
+[2025-06-26T12:56:41.005+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2025-06-26T12:56:41.008+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T12:56:41.018+0000] {process_utils.py:132} INFO - Sending 15 to group 246. PIDs of all processes in the group: [246]
+[2025-06-26T12:56:41.019+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 246
+[2025-06-26T12:56:41.024+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-06-26T12:56:41.027+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T12:56:41.046+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/loan_ml_pipeline_dag.py", line 62, in training_task
+    model, best_params, _ = modelling.train_xgboost_with_search(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/utils/modelling.py", line 150, in train_xgboost_with_search
+    search.fit(X_tr, y_tr)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_search.py", line 968, in fit
+    self._run_search(evaluate_candidates)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_search.py", line 1930, in _run_search
+    evaluate_candidates(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_search.py", line 914, in evaluate_candidates
+    out = parallel(
+          ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/parallel.py", line 67, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/joblib/parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/joblib/parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/parallel.py", line 129, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_validation.py", line 888, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 730, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/sklearn.py", line 1519, in fit
+    self._Booster = train(
+                    ^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 730, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/training.py", line 181, in train
+    bst.update(dtrain, i, obj)
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 2051, in update
+    _LIB.XGBoosterUpdateOneIter(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2025-06-26T12:56:41.081+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=loan_credit_ml, task_id=training, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T125615, end_date=20250626T125641
+[2025-06-26T12:56:41.153+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=246, status='terminated', exitcode=2, started='12:56:15') (246) terminated with exit code 2

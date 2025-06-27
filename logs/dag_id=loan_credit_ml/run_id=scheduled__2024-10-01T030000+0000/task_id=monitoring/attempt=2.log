@@ -1,0 +1,42 @@
+[2025-06-26T13:11:51.406+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T13:11:51.467+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.monitoring scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:11:51.485+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.monitoring scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:11:51.486+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-06-26T13:11:51.523+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): monitoring> on 2024-10-01 03:00:00+00:00
+[2025-06-26T13:11:51.551+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'monitoring', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '98', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpn0ksnkea']
+[2025-06-26T13:11:51.566+0000] {standard_task_runner.py:91} INFO - Job 98: Subtask monitoring
+[2025-06-26T13:11:51.566+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=187) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T13:11:51.568+0000] {standard_task_runner.py:63} INFO - Started process 197 to run task
+[2025-06-26T13:11:51.747+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.monitoring scheduled__2024-10-01T03:00:00+00:00 [running]> on host f73c0c6d85d6
+[2025-06-26T13:11:51.998+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='monitoring' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T13:11:52.000+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T13:11:54.471+0000] {logging_mixin.py:188} INFO - [✓] Processed snapshot 2024-10
+[2025-06-26T13:11:54.479+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T13:11:54.480+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/loan_ml_pipeline_dag.py", line 83, in monitoring_task
+    monitoring.run_monitoring()
+  File "/opt/airflow/utils/monitoring.py", line 121, in run_monitoring
+    run_ts   = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+               ^^^^^^^^
+NameError: name 'datetime' is not defined. Did you forget to import 'datetime'
+[2025-06-26T13:11:54.518+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=loan_credit_ml, task_id=monitoring, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T131151, end_date=20250626T131154
+[2025-06-26T13:11:54.551+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 98 for task monitoring (name 'datetime' is not defined; 197)
+[2025-06-26T13:11:54.605+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-06-26T13:11:54.644+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T13:11:54.652+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

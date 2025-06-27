@@ -1,0 +1,42 @@
+[2025-06-26T14:17:31.009+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T14:17:31.071+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.training manual__2025-06-26T14:13:26.069541+00:00 [queued]>
+[2025-06-26T14:17:31.086+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.training manual__2025-06-26T14:13:26.069541+00:00 [queued]>
+[2025-06-26T14:17:31.087+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T14:17:31.109+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): training> on 2025-06-26 14:13:26.069541+00:00
+[2025-06-26T14:17:31.125+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'training', 'manual__2025-06-26T14:13:26.069541+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpkcfm4o5d']
+[2025-06-26T14:17:31.129+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask training
+[2025-06-26T14:17:31.130+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=411) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T14:17:31.132+0000] {standard_task_runner.py:63} INFO - Started process 421 to run task
+[2025-06-26T14:17:31.218+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.training manual__2025-06-26T14:13:26.069541+00:00 [running]> on host 0192db86dfc6
+[2025-06-26T14:17:31.448+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='training' AIRFLOW_CTX_EXECUTION_DATE='2025-06-26T14:13:26.069541+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-26T14:13:26.069541+00:00'
+[2025-06-26T14:17:31.456+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T14:17:31.523+0000] {logging_mixin.py:188} INFO - Date config for this run: {'train_test_start_date': '2023-09-01', 'train_test_end_date': '2025-02-28', 'oot_start_date': '2025-03-01', 'oot_end_date': '2025-05-31', 'train_test_ratio': 0.8, 'model_train_date_str': '2025-06-26'}
+[2025-06-26T14:17:34.759+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T14:17:34.760+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/loan_ml_pipeline_dag.py", line 61, in training_task
+    (X_tr_raw, X_te_raw, X_oot_raw, y_tr, y_te, y_oot) = modelling.split_data(df_raw, cfg)
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/utils/modelling.py", line 62, in split_data
+    raise ValueError("OOT window contains 0 rows.")
+ValueError: OOT window contains 0 rows.
+[2025-06-26T14:17:34.788+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=loan_credit_ml, task_id=training, run_id=manual__2025-06-26T14:13:26.069541+00:00, execution_date=20250626T141326, start_date=20250626T141731, end_date=20250626T141734
+[2025-06-26T14:17:34.811+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 7 for task training (OOT window contains 0 rows.; 421)
+[2025-06-26T14:17:34.853+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-06-26T14:17:34.886+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T14:17:34.891+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

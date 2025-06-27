@@ -1,0 +1,89 @@
+[2025-06-26T13:27:04.751+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T13:27:04.790+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.training manual__2025-06-26T13:23:06.455665+00:00 [queued]>
+[2025-06-26T13:27:04.802+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.training manual__2025-06-26T13:23:06.455665+00:00 [queued]>
+[2025-06-26T13:27:04.803+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T13:27:04.827+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): training> on 2025-06-26 13:23:06.455665+00:00
+[2025-06-26T13:27:04.840+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'training', 'manual__2025-06-26T13:23:06.455665+00:00', '--job-id', '112', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmp29qew6eu']
+[2025-06-26T13:27:04.843+0000] {standard_task_runner.py:91} INFO - Job 112: Subtask training
+[2025-06-26T13:27:04.844+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=443) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T13:27:04.846+0000] {standard_task_runner.py:63} INFO - Started process 463 to run task
+[2025-06-26T13:27:04.913+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.training manual__2025-06-26T13:23:06.455665+00:00 [running]> on host 408a45b37ace
+[2025-06-26T13:27:05.029+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='training' AIRFLOW_CTX_EXECUTION_DATE='2025-06-26T13:23:06.455665+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-26T13:23:06.455665+00:00'
+[2025-06-26T13:27:05.031+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T13:27:08.140+0000] {logging_mixin.py:188} INFO - Fitting 3 folds for each of 10 candidates, totalling 30 fits
+[2025-06-26T13:27:45.899+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2025-06-26T13:27:45.919+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T13:27:45.955+0000] {process_utils.py:132} INFO - Sending 15 to group 463. PIDs of all processes in the group: [463]
+[2025-06-26T13:27:45.957+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 463
+[2025-06-26T13:27:45.978+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-06-26T13:27:45.987+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T13:27:46.247+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/loan_ml_pipeline_dag.py", line 62, in training_task
+    model, best_params, _ = modelling.train_xgboost_with_search(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/utils/modelling.py", line 150, in train_xgboost_with_search
+    search.fit(X_tr, y_tr)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_search.py", line 968, in fit
+    self._run_search(evaluate_candidates)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_search.py", line 1930, in _run_search
+    evaluate_candidates(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_search.py", line 914, in evaluate_candidates
+    out = parallel(
+          ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/parallel.py", line 67, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/joblib/parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/joblib/parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/parallel.py", line 129, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/model_selection/_validation.py", line 888, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 730, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/sklearn.py", line 1519, in fit
+    self._Booster = train(
+                    ^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 730, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/training.py", line 181, in train
+    bst.update(dtrain, i, obj)
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/core.py", line 2051, in update
+    _LIB.XGBoosterUpdateOneIter(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2025-06-26T13:27:46.298+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=loan_credit_ml, task_id=training, run_id=manual__2025-06-26T13:23:06.455665+00:00, execution_date=20250626T132306, start_date=20250626T132704, end_date=20250626T132746
+[2025-06-26T13:27:46.355+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 112 for task training ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(loan_credit_ml, training, manual__2025-06-26T13:23:06.455665+00:00, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'training', 'dag_id': 'loan_credit_ml', 'run_id': 'manual__2025-06-26T13:23:06.455665+00:00', 'map_index': -1, 'start_date': datetime.datetime(2025, 6, 26, 13, 27, 4, 791452, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2025, 6, 26, 13, 27, 46, 297918, tzinfo=Timezone('UTC')), 'duration': 41}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 463)
+[2025-06-26T13:27:46.418+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=463, status='terminated', exitcode=1, started='13:27:04') (463) terminated with exit code 1

@@ -1,0 +1,171 @@
+[2025-06-26T11:43:31.899+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T11:43:31.977+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T11:43:31.990+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T11:43:31.991+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T11:43:32.009+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-01 03:00:00+00:00
+[2025-06-26T11:43:32.032+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'load_data', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '76', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpoxdlkmxa']
+[2025-06-26T11:43:32.038+0000] {standard_task_runner.py:91} INFO - Job 76: Subtask load_data
+[2025-06-26T11:43:32.038+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=823) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T11:43:32.039+0000] {standard_task_runner.py:63} INFO - Started process 833 to run task
+[2025-06-26T11:43:32.118+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [running]> on host 0aa00e2dc6c2
+[2025-06-26T11:43:32.263+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T11:43:32.266+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T11:43:38.689+0000] {logging_mixin.py:188} INFO - [✓] Dataset 2023-01-01 → 2024-10-01: 10,971 rows, 73 features.
+[2025-06-26T11:43:38.702+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T11:43:38.702+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T11:43:38.723+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=load_data, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T114331, end_date=20250626T114338
+[2025-06-26T11:43:38.815+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T11:43:38.861+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T11:43:38.866+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T11:50:50.044+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T11:50:50.081+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T11:50:50.091+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T11:50:50.092+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T11:50:50.116+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-01 03:00:00+00:00
+[2025-06-26T11:50:50.130+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'load_data', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '79', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmp199qd50_']
+[2025-06-26T11:50:50.135+0000] {standard_task_runner.py:91} INFO - Job 79: Subtask load_data
+[2025-06-26T11:50:50.136+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=202) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T11:50:50.138+0000] {standard_task_runner.py:63} INFO - Started process 212 to run task
+[2025-06-26T11:50:50.227+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [running]> on host fac20d2b4eaf
+[2025-06-26T11:50:50.384+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T11:50:50.386+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T11:50:58.858+0000] {logging_mixin.py:188} INFO - [✓] Dataset 2023-01-01 → 2024-10-01: 10,971 rows, 73 features.
+[2025-06-26T11:50:58.867+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T11:50:58.868+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T11:50:58.884+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=load_data, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T115050, end_date=20250626T115058
+[2025-06-26T11:50:58.961+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T11:50:58.993+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T11:50:58.998+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T12:31:05.980+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T12:31:06.063+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T12:31:06.077+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T12:31:06.078+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T12:31:06.100+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-01 03:00:00+00:00
+[2025-06-26T12:31:06.124+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'load_data', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '82', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpje902t3o']
+[2025-06-26T12:31:06.129+0000] {standard_task_runner.py:91} INFO - Job 82: Subtask load_data
+[2025-06-26T12:31:06.135+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=901) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T12:31:06.136+0000] {standard_task_runner.py:63} INFO - Started process 911 to run task
+[2025-06-26T12:31:06.224+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [running]> on host 2cd9e0b16e07
+[2025-06-26T12:31:06.494+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T12:31:06.505+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T12:31:14.854+0000] {logging_mixin.py:188} INFO - [✓] Dataset 2023-01-01 → 2024-10-01: 10,971 rows, 73 features.
+[2025-06-26T12:31:14.866+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T12:31:14.867+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T12:31:14.891+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=load_data, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T123106, end_date=20250626T123114
+[2025-06-26T12:31:14.985+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T12:31:15.039+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T12:31:15.043+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T12:58:31.598+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T12:58:31.675+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T12:58:31.688+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T12:58:31.689+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T12:58:31.712+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-01 03:00:00+00:00
+[2025-06-26T12:58:31.745+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'load_data', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmp1bg0n4gc']
+[2025-06-26T12:58:31.750+0000] {standard_task_runner.py:91} INFO - Job 93: Subtask load_data
+[2025-06-26T12:58:31.751+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=386) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T12:58:31.753+0000] {standard_task_runner.py:63} INFO - Started process 396 to run task
+[2025-06-26T12:58:31.841+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [running]> on host 1874434f82c9
+[2025-06-26T12:58:32.003+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T12:58:32.005+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T12:58:35.816+0000] {logging_mixin.py:188} INFO - [✓] Dataset 2023-01-01 → 2024-10-01: 10,971 rows, 73 features.
+[2025-06-26T12:58:35.824+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T12:58:35.825+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T12:58:35.896+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=load_data, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T125831, end_date=20250626T125835
+[2025-06-26T12:58:35.955+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T12:58:36.003+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T12:58:36.008+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T13:14:37.511+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T13:14:37.623+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:14:37.643+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:14:37.644+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T13:14:37.683+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-01 03:00:00+00:00
+[2025-06-26T13:14:37.734+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'load_data', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '102', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmp70x3uy9m']
+[2025-06-26T13:14:37.774+0000] {standard_task_runner.py:91} INFO - Job 102: Subtask load_data
+[2025-06-26T13:14:37.782+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=336) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T13:14:37.784+0000] {standard_task_runner.py:63} INFO - Started process 346 to run task
+[2025-06-26T13:14:38.064+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [running]> on host f73c0c6d85d6
+[2025-06-26T13:14:38.290+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T13:14:38.291+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T13:14:50.380+0000] {logging_mixin.py:188} INFO - [✓] Dataset 2023-01-01 → 2024-10-01: 10,971 rows, 73 features.
+[2025-06-26T13:14:50.396+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T13:14:50.397+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T13:14:50.433+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=load_data, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T131437, end_date=20250626T131450
+[2025-06-26T13:14:50.538+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T13:14:50.596+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T13:14:50.601+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T13:23:15.990+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T13:23:16.094+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:23:16.114+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:23:16.116+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T13:23:16.144+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-01 03:00:00+00:00
+[2025-06-26T13:23:16.171+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'load_data', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpdclpndiu']
+[2025-06-26T13:23:16.186+0000] {standard_task_runner.py:91} INFO - Job 107: Subtask load_data
+[2025-06-26T13:23:16.190+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=243) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T13:23:16.192+0000] {standard_task_runner.py:63} INFO - Started process 253 to run task
+[2025-06-26T13:23:16.622+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [running]> on host 408a45b37ace
+[2025-06-26T13:23:16.915+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T13:23:16.920+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T13:23:28.420+0000] {logging_mixin.py:188} INFO - [✓] Dataset 2023-01-01 → 2024-10-01: 10,971 rows, 73 features.
+[2025-06-26T13:23:28.428+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T13:23:28.429+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T13:23:28.475+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=load_data, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T132316, end_date=20250626T132328
+[2025-06-26T13:23:28.538+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T13:23:28.585+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T13:23:28.590+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T13:39:58.122+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T13:39:58.179+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:39:58.193+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:39:58.194+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T13:39:58.213+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-01 03:00:00+00:00
+[2025-06-26T13:39:58.230+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'load_data', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '116', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpegwicjdq']
+[2025-06-26T13:39:58.234+0000] {standard_task_runner.py:91} INFO - Job 116: Subtask load_data
+[2025-06-26T13:39:58.236+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=215) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T13:39:58.237+0000] {standard_task_runner.py:63} INFO - Started process 225 to run task
+[2025-06-26T13:39:58.338+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [running]> on host b7323eaf5bba
+[2025-06-26T13:39:58.472+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T13:39:58.474+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T13:40:07.213+0000] {logging_mixin.py:188} INFO - [✓] Dataset 2023-01-01 → 2024-10-01: 10,971 rows, 73 features.
+[2025-06-26T13:40:07.220+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T13:40:07.221+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T13:40:07.254+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=load_data, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T133958, end_date=20250626T134007
+[2025-06-26T13:40:07.309+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T13:40:07.350+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T13:40:07.355+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T13:57:22.779+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T13:57:22.817+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:57:22.830+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T13:57:22.831+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T13:57:22.846+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-01 03:00:00+00:00
+[2025-06-26T13:57:22.859+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'load_data', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpcbzs5dwk']
+[2025-06-26T13:57:22.863+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask load_data
+[2025-06-26T13:57:22.864+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=201) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T13:57:22.865+0000] {standard_task_runner.py:63} INFO - Started process 225 to run task
+[2025-06-26T13:57:22.934+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [running]> on host ab9233100691
+[2025-06-26T13:57:23.070+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T13:57:23.073+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T13:57:31.282+0000] {logging_mixin.py:188} INFO - [✓] Dataset 2023-01-01 → 2024-10-01: 10,971 rows, 73 features.
+[2025-06-26T13:57:31.293+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T13:57:31.295+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T13:57:31.318+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=load_data, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T135722, end_date=20250626T135731
+[2025-06-26T13:57:31.399+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T13:57:31.475+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T13:57:31.481+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T14:13:25.032+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T14:13:25.079+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T14:13:25.092+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [queued]>
+[2025-06-26T14:13:25.093+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T14:13:25.109+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2024-10-01 03:00:00+00:00
+[2025-06-26T14:13:25.121+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'load_data', 'scheduled__2024-10-01T03:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmp736_urvr']
+[2025-06-26T14:13:25.126+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask load_data
+[2025-06-26T14:13:25.127+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=201) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T14:13:25.128+0000] {standard_task_runner.py:63} INFO - Started process 211 to run task
+[2025-06-26T14:13:25.209+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.load_data scheduled__2024-10-01T03:00:00+00:00 [running]> on host 0192db86dfc6
+[2025-06-26T14:13:25.349+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-01T03:00:00+00:00'
+[2025-06-26T14:13:25.352+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T14:13:33.110+0000] {logging_mixin.py:188} INFO - [✓] Dataset 2023-01-01 → 2024-10-01: 10,971 rows, 73 features.
+[2025-06-26T14:13:33.122+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T14:13:33.125+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T14:13:33.179+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=load_data, run_id=scheduled__2024-10-01T03:00:00+00:00, execution_date=20241001T030000, start_date=20250626T141325, end_date=20250626T141333
+[2025-06-26T14:13:33.225+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T14:13:33.256+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T14:13:33.261+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

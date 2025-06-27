@@ -1,0 +1,1 @@
+[2025-06-26T09:56:26.678+0000] {scheduler_job_runner.py:769} ERROR - Executor reports task instance <TaskInstance: loan_credit_risk_pipeline.silver_processing scheduled__2024-12-31T17:00:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

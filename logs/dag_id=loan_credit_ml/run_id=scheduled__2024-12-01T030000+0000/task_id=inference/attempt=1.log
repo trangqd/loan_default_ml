@@ -1,0 +1,42 @@
+[2025-06-26T14:09:54.748+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T14:09:54.798+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.inference scheduled__2024-12-01T03:00:00+00:00 [queued]>
+[2025-06-26T14:09:54.813+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.inference scheduled__2024-12-01T03:00:00+00:00 [queued]>
+[2025-06-26T14:09:54.814+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T14:09:54.837+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): inference> on 2024-12-01 03:00:00+00:00
+[2025-06-26T14:09:54.855+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'inference', 'scheduled__2024-12-01T03:00:00+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmph5uz3nfi']
+[2025-06-26T14:09:54.860+0000] {standard_task_runner.py:91} INFO - Job 14: Subtask inference
+[2025-06-26T14:09:54.863+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=780) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T14:09:54.865+0000] {standard_task_runner.py:63} INFO - Started process 790 to run task
+[2025-06-26T14:09:54.942+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.inference scheduled__2024-12-01T03:00:00+00:00 [running]> on host ab9233100691
+[2025-06-26T14:09:55.093+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='inference' AIRFLOW_CTX_EXECUTION_DATE='2024-12-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-01T03:00:00+00:00'
+[2025-06-26T14:09:55.095+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T14:09:55.345+0000] {logging_mixin.py:188} INFO - [✓] Selected best model 'credit_model_2024_12_01.pkl'  (auc_oot=0.8010)
+[2025-06-26T14:09:57.219+0000] {logging_mixin.py:188} INFO - [✓] Saved /opt/***/data_mart/gold/predictions/preds_2024-12.parquet  (515 rows)
+[2025-06-26T14:09:57.220+0000] {logging_mixin.py:188} INFO - [✓] Inference complete – 515 rows scored.
+[2025-06-26T14:09:57.222+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T14:09:57.223+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T14:09:57.236+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=inference, run_id=scheduled__2024-12-01T03:00:00+00:00, execution_date=20241201T030000, start_date=20250626T140954, end_date=20250626T140957
+[2025-06-26T14:09:57.294+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T14:09:57.323+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T14:09:57.327+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-06-26T14:25:22.188+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-26T14:25:22.312+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: loan_credit_ml.inference scheduled__2024-12-01T03:00:00+00:00 [queued]>
+[2025-06-26T14:25:22.349+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: loan_credit_ml.inference scheduled__2024-12-01T03:00:00+00:00 [queued]>
+[2025-06-26T14:25:22.350+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-26T14:25:22.381+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): inference> on 2024-12-01 03:00:00+00:00
+[2025-06-26T14:25:22.406+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'loan_credit_ml', 'inference', 'scheduled__2024-12-01T03:00:00+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/loan_ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpw8iayuw6']
+[2025-06-26T14:25:22.424+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=780) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-26T14:25:22.428+0000] {standard_task_runner.py:91} INFO - Job 14: Subtask inference
+[2025-06-26T14:25:22.429+0000] {standard_task_runner.py:63} INFO - Started process 790 to run task
+[2025-06-26T14:25:22.638+0000] {task_command.py:426} INFO - Running <TaskInstance: loan_credit_ml.inference scheduled__2024-12-01T03:00:00+00:00 [running]> on host 0192db86dfc6
+[2025-06-26T14:25:22.953+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='loan_credit_ml' AIRFLOW_CTX_TASK_ID='inference' AIRFLOW_CTX_EXECUTION_DATE='2024-12-01T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-01T03:00:00+00:00'
+[2025-06-26T14:25:22.956+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-26T14:25:23.743+0000] {logging_mixin.py:188} INFO - [✓] Selected best model 'credit_model_2024_12_01.pkl'  (auc_oot=0.8010)
+[2025-06-26T14:25:27.881+0000] {logging_mixin.py:188} INFO - [✓] Saved /opt/***/data_mart/gold/predictions/preds_2024-12.parquet  (515 rows)
+[2025-06-26T14:25:27.882+0000] {logging_mixin.py:188} INFO - [✓] Inference complete – 515 rows scored.
+[2025-06-26T14:25:27.884+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-26T14:25:27.885+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-26T14:25:27.903+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=loan_credit_ml, task_id=inference, run_id=scheduled__2024-12-01T03:00:00+00:00, execution_date=20241201T030000, start_date=20250626T142522, end_date=20250626T142527
+[2025-06-26T14:25:27.979+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-26T14:25:28.015+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-26T14:25:28.020+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
